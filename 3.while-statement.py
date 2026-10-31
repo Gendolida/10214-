@@ -22,3 +22,17 @@ while user_input != "0":
         print("게임을 종료합니다.")
     else:
         print("잘못된 입력입니다.")
+
+while True:
+    user_input = input("원하는 동작을 입력하세요")
+    if user_input == "0":
+        print("게임을 종료합니다")
+        break # 해당 if문을 포함하는 직속 while문을 종료
+
+b = 0
+
+while b < 10:
+    b +=1
+    b = b+1
+    if b == 5:
+        continue
