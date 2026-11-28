@@ -14,7 +14,7 @@ def retrieve_rating():
         if movie["rating"] > user_input:
             print("- ", movie["title"])
 def retrieve_total_movie_views():
-    user_input = input(어느 장릉ㅢ 뷰를 조회하시겠ㅅㅡㅂ니까?)
+    user_input = input("어느 장르의 뷰를 조회하시겠습니까?")
     total_animation_views = 0
     for movie in movies:
         if movie["genre"] == "애니메이션":
@@ -31,6 +31,27 @@ def retrieve_max_view_movie
             max_title = movie["title"]
 print("[최다 조회수의 영화]")
 print(max_title, ":", max_views)
+
+def search_movie_by_title(keyword):
+    searched_movies = []
+    for movie in movies:
+        if movie["title"].find(keyword) >= 0:
+            searched_movies.append(movie)
+    print(keyword, "가 입력된 영화")
+    print(searched_movies)
+
+def search_movie_by_genre(keyword):
+    searched_movies = []
+    for movie in movies:
+        if movie["genre"] == keyword:
+            searched_movies.append(movie)
+    print(keyword, "장르의 영화")
+    print(searched_movies)
+
+def search_movie():
+    keyword = input("검색할 영화를 입력하세요")
+    search_movie_by_title(keyword)
+    search_movie_by_genre(keyword)
 
 while True:
     print("====================")
@@ -50,5 +71,7 @@ while True:
         retrieve_total_movie_views()
     elif choice == 3:
         retrieve_max_view_movie()
+    elif choice == 4:
+        search_movie()
     else:
         print("잘못된 입력입니다.")
